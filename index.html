@@ -1,50 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RD Osio | Developer, Webcomic Creator, Violinist & Songwriter</title>
-  
-  <!-- Structured Data for Google & AI Parsers -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://rdosio.github.io/#person",
-        "name": "RD Osio",
-        "legalName": "Ron David M. Osio",
-        "alternateName": ["Ron David Osio", "Ron Osio"],
-        "jobTitle": ["Mobile App Developer", "Webcomic Creator", "Violinist", "Songwriter"],
-        "nationality": [{"@type": "Country", "name": "Philippines"}],
-        "knowsLanguage": ["English", "Tagalog", "Japanese"],
-        "sameAs": [
-          "https://www.wikidata.org/wiki/Q141556701",
-          "https://play.google.com/store/apps/dev?id=8888062837330088921",
-          "https://www.webtoons.com/p/community/en/u/_caud8"
-        ]
-      },
-      {
-        "@type": "SoftwareApplication",
-        "name": "Crush Counter",
-        "operatingSystem": "ANDROID",
-        "author": {"@id": "https://rdosio.github.io/#person"},
-        "installUrl": "https://play.google.com/store/apps/details?id=com.rdosio.crushcounter"
-      }
-    ]
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RD Osio | Developer, Webcomic Creator, Violinist & Songwriter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Structured Data for Google & AI Parsers -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://rdosio.github.io/#person",
+      "name": "RD Osio",
+      "legalName": "Ron David M. Osio",
+      "alternateName": ["Ron David Osio", "Ron Osio"],
+      "jobTitle": ["Mobile App Developer", "Webcomic Creator", "Violinist", "Songwriter"],
+      "nationality": [{"@type": "Country", "name": "Philippines"}],
+      "knowsLanguage": ["English", "Tagalog", "Japanese"],
+      "sameAs": [
+        "https://www.wikidata.org/wiki/Q141556701",
+        "https://play.google.com/store/apps/dev?id=8888062837330088921",
+        "https://www.webtoons.com/p/community/en/u/_caud8"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Crush Counter",
+      "operatingSystem": "ANDROID",
+      "author": {"@id": "https://rdosio.github.io/#person"},
+      "installUrl": "https://play.google.com/store/apps/details?id=com.rdosio.crushcounter"
+    }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --paper:#f6f3ec;
+    --ink:#1c1a17;
+    --ink-soft:#4a463f;
+    --rule:#d8d2c4;
+    --brass:#a9762c;
+    --brass-deep:#7c541c;
+    --panel:#efe9db;
+    --max:640px;
   }
-  </script>
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.035;
+    background-image:radial-gradient(circle at 1px 1px, #000 1px, transparent 0);
+    background-size:3px 3px;
+  }
+
+  a{color:var(--brass-deep);}
+  a:hover{color:var(--brass);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--brass-deep); outline-offset:3px;}
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:5rem 1.5rem 6rem;
+  }
+
+  header.hero{
+    padding:5rem 1.5rem 3.5rem;
+    max-width:var(--max);
+    margin:0 auto;
+  }
+
+  .staff{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    width:56px;
+    margin-bottom:1.75rem;
+  }
+  .staff span{
+    display:block;
+    height:1px;
+    background:var(--rule);
+  }
+  .staff span:nth-child(3){background:var(--brass); height:2px;}
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:500;
+    font-size:clamp(2.6rem, 7vw, 3.6rem);
+    line-height:1.05;
+    margin:0 0 1.1rem;
+    letter-spacing:-0.01em;
+  }
+
+  .role-line{
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    margin:0 0 1.75rem;
+    max-width:32ch;
+  }
+
+  .role-line em{
+    font-style:normal;
+    color:var(--ink);
+    border-bottom:1px solid var(--brass);
+  }
+
+  p.bio{
+    font-size:1.05rem;
+    max-width:56ch;
+    margin:0;
+  }
+
+  p.bio .lang{
+    color:var(--ink-soft);
+    font-size:.95rem;
+  }
+
+  section{
+    padding:3.25rem 0;
+    border-top:1px solid var(--rule);
+  }
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:1rem;
+    margin-bottom:1.75rem;
+  }
+
+  .section-head h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1.55rem;
+    margin:0;
+  }
+
+  .section-head .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.78rem;
+    color:var(--brass-deep);
+    white-space:nowrap;
+  }
+
+  /* App project: framed like a small device card */
+  .app-card{
+    display:flex;
+    gap:1.25rem;
+    align-items:center;
+    background:var(--panel);
+    border:1px solid var(--rule);
+    border-radius:10px;
+    padding:1.1rem 1.25rem;
+    text-decoration:none;
+    color:inherit;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .app-card:hover{border-color:var(--brass); transform:translateX(2px);}
+
+  .app-glyph{
+    flex:none;
+    width:52px;
+    height:52px;
+    border-radius:13px;
+    background:linear-gradient(160deg, #c98b3c, var(--brass-deep));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+  }
+
+  .app-copy h3{
+    margin:0 0 .2rem;
+    font-size:1.05rem;
+    font-weight:600;
+  }
+  .app-copy p{
+    margin:0;
+    font-size:.92rem;
+    color:var(--ink-soft);
+  }
+
+  /* Webcomic: film-strip / panel motif */
+  .panels{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:2px;
+    background:var(--ink);
+    border:1px solid var(--ink);
+    border-radius:6px;
+    overflow:hidden;
+    margin-bottom:1.1rem;
+  }
+  .panels div{
+    aspect-ratio:1/1;
+    background:
+      repeating-linear-gradient(135deg, #ded6c2 0 8px, #e7e0d0 8px 16px);
+  }
+  .panels div:nth-child(2){
+    background:
+      repeating-linear-gradient(45deg, #ddb377 0 8px, #e8c99a 8px 16px);
+  }
+
+  .comic-link{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1px solid var(--brass);
+    padding-bottom:2px;
+  }
+
+  /* Music: waveform */
+  .waveform{
+    display:flex;
+    align-items:flex-end;
+    gap:3px;
+    height:48px;
+    margin-bottom:1.1rem;
+  }
+  .waveform span{
+    flex:1;
+    background:var(--brass);
+    border-radius:2px;
+    opacity:.85;
+  }
+
+  .music-desc{
+    font-size:.98rem;
+    color:var(--ink-soft);
+    max-width:52ch;
+    margin:0;
+  }
+
+  footer{
+    padding-top:3rem;
+    border-top:1px solid var(--rule);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.8rem;
+    color:var(--ink-soft);
+  }
+  footer a{color:var(--ink-soft); text-decoration:underline;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .app-card{transition:none;}
+  }
+</style>
 </head>
 <body>
+
+<header class="hero">
+  <div class="staff" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+  </div>
   <h1>RD Osio</h1>
-  <p>RD Osio (legal name: Ron David M. Osio) is a Filipino-Japanese mobile application developer, webcomic creator, violinist, and songwriter.</p>
-  
-  <h2>Projects & Works</h2>
-  <ul>
-    <li><a href="https://play.google.com/store/apps/details?id=com.rdosio.crushcounter">Crush Counter (Android App)</a></li>
-    <li><a href="https://www.webtoons.com/p/community/en/u/_caud8">Webcomics on WEBTOON Canvas</a></li>
-    <li><a href="https://www.wikidata.org/wiki/Q141556701">Wikidata Record (Q141556701)</a></li>
-  </ul>
+  <p class="role-line">Builds mobile apps, draws webcomics, and writes songs — <em>usually all in the same week</em>.</p>
+  <p class="bio">RD Osio (legal name: Ron David M. Osio) is a Filipino mobile application developer, webcomic creator, violinist, and songwriter. <span class="lang">Works comfortably in English, Tagalog, and Japanese.</span></p>
+</header>
+
+<div class="wrap" style="padding-top:0;">
+
+  <section>
+    <div class="section-head">
+      <h2>App</h2>
+      <span class="tag">android</span>
+    </div>
+    <a class="app-card" href="https://play.google.com/store/apps/details?id=com.rdosio.crushcounter">
+      <span class="app-glyph" aria-hidden="true">C</span>
+      <span class="app-copy">
+        <h3>Crush Counter</h3>
+        <p>Android app on Google Play — tap through to install.</p>
+      </span>
+    </a>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Webcomics</h2>
+      <span class="tag">webtoon canvas</span>
+    </div>
+    <div class="panels" aria-hidden="true">
+      <div></div><div></div><div></div>
+    </div>
+    <p><a class="comic-link" href="https://www.webtoons.com/p/community/en/u/_caud8">Read the comics on WEBTOON &rarr;</a></p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Violin & Songwriting</h2>
+      <span class="tag">music</span>
+    </div>
+    <div class="waveform" aria-hidden="true">
+      <span style="height:35%"></span><span style="height:60%"></span><span style="height:25%"></span>
+      <span style="height:80%"></span><span style="height:45%"></span><span style="height:65%"></span>
+      <span style="height:30%"></span><span style="height:50%"></span><span style="height:70%"></span>
+      <span style="height:40%"></span><span style="height:55%"></span><span style="height:20%"></span>
+    </div>
+    <p class="music-desc">Plays violin and writes original songs. More recordings and releases coming soon.</p>
+  </section>
+
+  <footer>
+    <p>Verified record: <a href="https://www.wikidata.org/wiki/Q141556701">Wikidata Q141556701</a></p>
+  </footer>
+
+</div>
+
 </body>
 </html>
